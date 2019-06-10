@@ -1,0 +1,1 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=edu.dibyarup.springboot.lib.swagger.config.SwaggerConfig
