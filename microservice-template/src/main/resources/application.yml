@@ -1,0 +1,47 @@
+spring:
+  profiles:
+    active: local,tst
+  output:
+    ansi:
+      enabled: ALWAYS
+  application:
+    name: '@project.artifactId@'
+  jmx:
+    default-domain: '@project.artifactId@'
+
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger [%mdc{}] - %msg%n"
+  level:
+    root: WARN
+    org.springframework.web: INFO
+    org.springframework.security: INFO
+
+server.port: 8080
+
+#swagger
+swagger.api:
+  title: microservice-template API documentation
+  description: microservice-template API documentation
+  version: 1.0
+  use.default.messages: false
+
+# spring-boot-actuator
+management:
+  endpoints.web:
+    base-path: /manage
+    exposure.include: health,info,prometheus
+  server.port: 81
+
+info.builder.user: '@user.name@'
+
+app.presumed-time-zone: "Europe/Amsterdam"
+
+# Git tag and docker image version have the same value.
+git.tag: '@docker.image.version@'
+
+feign:
+  hystrix:
+    enabled: true
+
